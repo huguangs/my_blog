@@ -1,0 +1,331 @@
+info:
+  contact: {}
+paths:
+  /api/v1/article:
+    get:
+      parameters:
+      - description: id
+        in: query
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 查询单个文章
+      tags:
+      - 文章模块
+  /api/v1/article-add:
+    post:
+      parameters:
+      - description: title
+        in: formData
+        name: title
+        type: string
+      - description: cid
+        in: formData
+        name: cid
+        type: integer
+      - description: desc
+        in: formData
+        name: desc
+        type: string
+      - description: content
+        in: formData
+        name: content
+        type: string
+      - description: img
+        in: formData
+        name: img
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 添加文章
+      tags:
+      - 文章模块
+  /api/v1/article-edit:
+    put:
+      parameters:
+      - description: id
+        in: query
+        name: id
+        type: integer
+      - description: title
+        in: formData
+        name: title
+        type: string
+      - description: cid
+        in: formData
+        name: cid
+        type: integer
+      - description: desc
+        in: formData
+        name: desc
+        type: string
+      - description: content
+        in: formData
+        name: content
+        type: string
+      - description: img
+        in: formData
+        name: img
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 编辑文章信息
+      tags:
+      - 文章模块
+  /api/v1/article/:id:
+    delete:
+      parameters:
+      - description: id
+        in: query
+        name: id
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 删除文章
+      tags:
+      - 文章模块
+  /api/v1/articles:
+    get:
+      parameters:
+      - description: pagesize
+        in: query
+        name: pagesize
+        type: integer
+      - description: page_num
+        in: query
+        name: page_num
+        type: integer
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 查询文章列表
+      tags:
+      - 文章模块
+  /api/v1/cate-art:
+    get:
+      parameters:
+      - description: cid
+        in: query
+        name: cid
+        required: true
+        type: integer
+      - description: pagesize
+        in: query
+        name: pagesize
+        type: integer
+      - description: page_num
+        in: query
+        name: page_num
+        type: integer
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 查询分类下的文章
+      tags:
+      - 文章模块
+  /api/v1/categories:
+    get:
+      parameters:
+      - description: pagesize
+        in: query
+        name: pagesize
+        type: integer
+      - description: page_num
+        in: query
+        name: page_num
+        type: integer
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 查询分类列表
+      tags:
+      - 分类模块
+  /api/v1/category-add:
+    post:
+      parameters:
+      - description: name
+        in: formData
+        name: name
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 添加分类
+      tags:
+      - 分类模块
+  /api/v1/category-edit:
+    put:
+      parameters:
+      - description: id
+        in: query
+        name: id
+        type: integer
+      - description: name
+        in: formData
+        name: name
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 编辑分类信息
+      tags:
+      - 分类模块
+  /api/v1/category/:id:
+    delete:
+      parameters:
+      - description: id
+        in: query
+        name: id
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 删除分类
+      tags:
+      - 分类模块
+  /api/v1/login:
+    post:
+      parameters:
+      - description: user_name
+        in: formData
+        name: user_name
+        required: true
+        type: string
+      - description: pass_word
+        in: formData
+        name: pass_word
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 用户登录
+      tags:
+      - 用户模块
+  /api/v1/user-add:
+    post:
+      parameters:
+      - description: user_name
+        in: formData
+        name: user_name
+        required: true
+        type: string
+      - description: pass_word
+        in: formData
+        name: pass_word
+        required: true
+        type: string
+      - description: role
+        in: formData
+        name: role
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 添加用户
+      tags:
+      - 用户模块
+  /api/v1/user-delete:
+    delete:
+      parameters:
+      - description: id
+        in: query
+        name: id
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 删除用户
+      tags:
+      - 用户模块
+  /api/v1/user-edit:
+    put:
+      parameters:
+      - description: id
+        in: query
+        name: id
+        type: integer
+      - description: user_name
+        in: formData
+        name: user_name
+        type: string
+      - description: role
+        in: formData
+        name: role
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 编辑用户信息
+      tags:
+      - 用户模块
+  /api/v1/user-id:
+    get:
+      parameters:
+      - description: id
+        in: query
+        name: id
+        type: integer
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 查询用户
+      tags:
+      - 用户模块
+  /api/v1/users:
+    get:
+      parameters:
+      - description: pagesize
+        in: query
+        name: pagesize
+        type: integer
+      - description: page_num
+        in: query
+        name: page_num
+        type: integer
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 查询用户列表
+      tags:
+      - 用户模块
+swagger: "2.0"
